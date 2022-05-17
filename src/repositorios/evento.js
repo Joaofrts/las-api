@@ -6,6 +6,11 @@ class Evento {
 
     return query(sql);
   }
+  listarStatus(status) {
+    const sql = "SELECT * FROM Eventos WHERE status = ?";
+
+    return query(sql, status);
+  }
   buscaPorId(id) {
     const sql = "SELECT * FROM Eventos WHERE id = ?";
     return query(sql, id);

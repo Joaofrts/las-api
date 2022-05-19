@@ -17,7 +17,21 @@ module.exports = (app) => {
   app.get("/usuarios/:id/dados-pessoais", (req, res, next) => {
     const id = parseInt(req.params.id);
     Usuarios.buscarDadosPessoais(id)
-      .then((resultados) => res.json(resultados))
+      .then((resultados) => res.json(resultados[0]))
+      .catch((erros) => next(erros));
+  });
+
+  app.get("/usuarios/:id/contatos", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    Usuarios.buscarContatos(id)
+      .then((resultados) => res.json(resultados[0]))
+      .catch((erros) => next(erros));
+  });
+
+  app.get("/usuarios/:id/endereco", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    Usuarios.buscarEndereco(id)
+      .then((resultados) => res.json(resultados[0]))
       .catch((erros) => next(erros));
   });
 
@@ -40,6 +54,30 @@ module.exports = (app) => {
     const valores = req.body;
     Usuarios.atualizarDadosPessoais(id, valores)
       .then((resultados) => res.json(resultados))
+      .catch((erros) => next(erros));
+  });
+
+  app.put("/usuarios/:id/contatos", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    const valores = req.body;
+    Usuarios.atualizaContatos(id, valores)
+      .then(() => res.send("Contatos atualizados com sucesso"))
+      .catch((erros) => next(erros));
+  });
+
+  app.put("/usuarios/:id/senha", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    const valores = req.body;
+    Usuarios.atualizarSenha(id, valores)
+      .then(() => res.send("Senha atualizada com sucesso"))
+      .catch((erros) => next(erros));
+  });
+
+  app.put("/usuarios/:id/endereco", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    const valores = req.body;
+    Usuarios.atualizarEndereco(id, valores)
+      .then(() => res.send("Endereço atualizado com sucesso"))
       .catch((erros) => next(erros));
   });
 

@@ -22,11 +22,15 @@ class Eventos {
     return repositorio.excluir(id);
   }
 
-  isDatasValidas(datas) {
-    return (
-      moment().isBefore(datas.dataInicio) &&
-      moment(datas.dataFim).isSameOrAfter(datas.dataInicio)
-    );
+  isDatasValidas(evento) {
+    if (evento.dataFim && evento.dataInicio) {
+      return (
+        moment().isBefore(evento.dataInicio) &&
+        moment(evento.dataFim).isSameOrAfter(evento.dataInicio)
+      );
+    } else {
+      return true;
+    }
   }
 }
 

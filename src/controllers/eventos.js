@@ -20,11 +20,11 @@ module.exports = (app) => {
       .catch((erros) => next(erros));
   });
   app.post("/eventos", (req, res, next) => {
-    const eventos = req.body;
+    const evento = req.body;
 
-    const dataEhValida = Eventos.isDatasValidas(eventos);
+    const dataEhValida = Eventos.isDatasValidas(evento);
     if (dataEhValida) {
-      Eventos.adicionar(eventos)
+      Eventos.adicionar(evento)
         .then(() => res.send("Evento incluído com sucesso"))
         .catch((erros) => next(erros));
     } else {

@@ -15,6 +15,14 @@ class Usuarios {
     return repositorio.buscarPorId(id);
   }
 
+  buscarContatos(id) {
+    return repositorio.buscarContatos(id);
+  }
+
+  buscarEndereco(id) {
+    return repositorio.buscarEndereco(id);
+  }
+
   async adicionar(usuario) {
     const nomeEhValido =
       usuario.nome.length > 0 &&
@@ -47,8 +55,20 @@ class Usuarios {
     }
   }
 
-  atualizarDadosPessoais(id, valores) {
-    return repositorio.atualizaDadosPessoais(id, valores);
+  atualizarDadosPessoais(id, dadosPessoais) {
+    return repositorio.atualizarDadosPessoais(id, dadosPessoais);
+  }
+
+  atualizaContatos(id, contatos) {
+    return repositorio.atualizarContatos(id, contatos);
+  }
+
+  atualizarSenha(id, senha) {
+    return repositorio.atualizarSenha(id, senha);
+  }
+
+  atualizarEndereco(id, endereço) {
+    return repositorio.atualizarEndereco(id, endereço);
   }
 
   alterar(id, valores) {

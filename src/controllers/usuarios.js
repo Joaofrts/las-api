@@ -14,6 +14,13 @@ module.exports = (app) => {
       .catch((erros) => next(erros));
   });
 
+  app.get("/usuarios/:id/dados-pessoais", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    Usuarios.buscarDadosPessoais(id)
+      .then((resultados) => res.json(resultados))
+      .catch((erros) => next(erros));
+  });
+
   app.post("/usuarios", (req, res, next) => {
     const usuarios = req.body;
     Usuarios.adicionar(usuarios)
@@ -25,6 +32,13 @@ module.exports = (app) => {
     const id = parseInt(req.params.id);
     const valores = req.body;
     Usuarios.alterar(id, valores)
+      .then((resultados) => res.json(resultados))
+      .catch((erros) => next(erros));
+  });
+  app.put("/usuarios/:id/dados-pessoais", (req, res, next) => {
+    const id = parseInt(req.params.id);
+    const valores = req.body;
+    Usuarios.atualizarDadosPessoais(id, valores)
       .then((resultados) => res.json(resultados))
       .catch((erros) => next(erros));
   });

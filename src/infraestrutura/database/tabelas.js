@@ -14,7 +14,7 @@ class Tabelas {
       urlFotoPerfil text,
       
       #dados pessoais
-      nomeComplete varchar(100),
+      nomeCompleto varchar(100),
       dataNascimento date,
       rg varchar(20),
       cpf varchar(11),

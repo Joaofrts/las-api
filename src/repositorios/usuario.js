@@ -14,6 +14,13 @@ class Usuarios {
     return query(sql, "%" + nome + "%");
   }
 
+  buscarDadosPessoais(id) {
+    const sql =
+      "SELECT nomeCompleto,dataNascimento,rg,cpf FROM Usuarios WHERE id = ?";
+
+    return query(sql, id);
+  }
+
   adicionar(usuario) {
     const sql = "INSERT INTO Usuarios SET ?";
     return query(sql, usuario);
@@ -23,6 +30,12 @@ class Usuarios {
     const sql = "UPDATE Usuarios SET ? WHERE id = ?";
     return query(sql, [valores, id]);
   }
+
+  atualizaDadosPessoais(id, valores) {
+    const sql = "UPDATE Usuarios SET ? WHERE id = ?";
+    return query(sql, [valores, id]);
+  }
+
   excluir(id) {
     const sql = "DELETE FROM Usuarios WHERE id = ?";
     return query(sql, id);

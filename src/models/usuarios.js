@@ -7,6 +7,10 @@ class Usuarios {
     return repositorio.listar();
   }
 
+  buscarDadosPessoais(id) {
+    return repositorio.buscarDadosPessoais(id);
+  }
+
   buscarPorId(id) {
     return repositorio.buscarPorId(id);
   }
@@ -41,6 +45,10 @@ class Usuarios {
         return resultados;
       });
     }
+  }
+
+  atualizarDadosPessoais(id, valores) {
+    return repositorio.atualizaDadosPessoais(id, valores);
   }
 
   alterar(id, valores) {

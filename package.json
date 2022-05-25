@@ -38,7 +38,8 @@
     "eslint-plugin-promise": "^5.2.0",
     "jest": "^27.4.5",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.3"
   },
   "pre-commit": [
     "lint"
@@ -63,6 +64,6 @@
     "mysql2": "^2.3.3",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.15",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.8"
   }
 }

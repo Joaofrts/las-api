@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "nome": "Paulo Silva",
+    "urlFotoPerfil": "https://randomuser.me/api/portraits/men/91.jpg"
+  },
+  {
+    "id": 2,
+    "nome": "Wellington Silva",
+    "urlFotoPerfil": "https://randomuser.me/api/portraits/men/92.jpg"
+  }
+];
